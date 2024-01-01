@@ -43,8 +43,8 @@ export class FileServices {
         }
     }
 
-  async  getFilePreview(fileId) {
-        return await this.storage.getFilePreview(
+    getFilePreview(fileId) {
+        return this.storage.getFilePreview(
             conf.appwriteBucketId,
             fileId
         )

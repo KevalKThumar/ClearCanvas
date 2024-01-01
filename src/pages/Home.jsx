@@ -43,7 +43,6 @@ const Home = () => {
       </div>
     );
   } else {
-    console.log(posts,"hello");
     return (
       <div className="w-full py-8 mt-4">
         <Container>

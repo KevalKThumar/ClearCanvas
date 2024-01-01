@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import parse from "html-react-parser";
 
 const PostCard = ({ $id, title, featuredImage, $createdAt, category }) => {
-
+console.log(featuredImage)
   return (
     <Link to={`/post/${$id}`}>
       <div key={$id} className="border bg-white rounded-xl">
