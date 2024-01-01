@@ -12,7 +12,7 @@ const PostCard = ({ $id, title, featuredImage, $createdAt, category }) => {
         <img
           src={appwriteService.getFilePreview(featuredImage)}
           alt={title}
-          className="aspect-video w-full rounded-md object-fill"
+          className="aspect-video w-full rounded-md object-scale-down "
         />
         <div className="min-h-min p-3">
           <p className="mt-4 w-full text-xs font-semibold leading-tight text-gray-700">
