@@ -9,26 +9,26 @@ const Home = () => {
     appwriteServices.getPosts().then((post) => {
       if (post) {
         setPosts(post.documents);
+        setIsPost(true);
       }
     });
-    setIsPost(true);
   }, []);
 
-  if (isPost !== false && posts.length === 0) {
+  if(isPost === false && posts.length === 0) {
     return (
       <div className="w-full py-8 mt-4 text-center">
         <Container>
           <div className="flex flex-wrap">
             <div className="p-2 w-full">
               <h1 className="text-2xl font-bold hover:text-gray-500">
-                Loading....
+                Loading...
               </h1>
             </div>
           </div>
         </Container>
       </div>
     );
-  } else if (isPost === false && posts.length === 0) {
+  }else if (isPost !== false && posts.length === 0) {
     return (
       <div className="w-full py-8 mt-4 text-center">
         <Container>

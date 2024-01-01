@@ -10,8 +10,8 @@ const AllPost = () => {
     appwriteSevices.getPosts([]).then((post) => {
       if (post) {
         setPosts(post.documents);
+        setIsPost(true);
       }
-      setIsPost(true);
     });
   });
   if (isPost === false && posts.length === 0) {
@@ -28,7 +28,7 @@ const AllPost = () => {
         </Container>
       </div>
     );
-  } else if (isPost === false && posts.length === 0) {
+  } else if (isPost !== false && posts.length === 0) {
     return (
       <div className="w-full py-8 mt-4 text-center">
         <Container>

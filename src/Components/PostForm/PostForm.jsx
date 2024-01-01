@@ -35,14 +35,13 @@ export default function PostForm({ post }) {
           appwriteServiceFile.deleteFile(post.featuredImage);
         }
 
-        const dbPost = await appwriteService.updxatePost(post.$id, {
+        const dbPost = await appwriteService.updatePost(post.$id, {
           ...data,
           featuredImage: file ? file.$id : undefined,
         });
         
         if (dbPost) {
-          // navigate(`/post/${dbPost.$id}`);
-          console.log(dbPost)
+          navigate(`/post/${dbPost.$id}`);
         }
       } else {
         const file = await appwriteServiceFile.uploadFile(data.image[0]);
@@ -61,6 +60,12 @@ export default function PostForm({ post }) {
         }
       }
     } catch (error) {
+
+      if(error.code === 409) {
+        alert("Title already exists");
+        return;
+      }
+      
       alert(error.message);
     } finally {
       setLoading(false);
